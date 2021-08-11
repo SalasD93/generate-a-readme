@@ -59,7 +59,7 @@ const questions = [
     {
         type: "input",
         name: "installation",
-        message: "Provide installation instructions.",
+        message: "Provide installation command.",
         validate: installationInput => {
             if (installationInput) {
                 return true;
@@ -98,7 +98,7 @@ const questions = [
     {
         type: "input",
         name: "test",
-        message: "Provide instructions for testing.",
+        message: "Provide command for testing.",
         validate: testInput => {
             if (testInput) {
                 return true;
