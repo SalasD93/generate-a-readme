@@ -112,7 +112,7 @@ const questions = [
         type: "confirm",
         name: "confirmLicense",
         message: "Would you like to add any license?",
-        default: true,
+        default: false,
     },
     {
         type: "list",
