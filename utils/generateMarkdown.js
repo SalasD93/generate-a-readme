@@ -3,52 +3,59 @@
 
 // var licensePicked = '';
 // const 
-function renderLicenseBadge(license) {
-    if (license === 'none') {
+function renderLicenseBadge(confirmLicense, license) {
+    if (confirmLicense === false | license === 'none') {
         return '';
     } 
     if (license === 'Apache') {
-        return `![GitHub license](https://img.shields.io/badge/license-Apache-blue.svg)`;
+        return `![Apache](https://img.shields.io/badge/license-Apache-blue.svg)
+        `;
     } else if (license === 'Apache 2.0') {
-        return `![GitHub license](https://img.shields.io/badge/license-Apache-2.0-blue.svg)`;
+        return `![Apache 2.0](https://img.shields.io/badge/license-Apache-2.0-blue.svg)
+        `;
     }  else if (license === 'GNU GPLv3') {
-        return `![GitHub license](https://img.shields.io/badge/license-GNU-GPLv3-red.svg)`;
+        return `![GNU GPLv3](https://img.shields.io/badge/license-GNU-GPLv3-red.svg)
+        `;
     }  else if (license === 'MIT') {
-        return `![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)`;
+        return `![MIT](https://img.shields.io/badge/license-MIT-green.svg)
+        `;
     }  else if (license === 'ISC') {
-        return `![GitHub license](https://img.shields.io/badge/license-ISC-yellow.svg)`;
+        return `![ISC](https://img.shields.io/badge/license-ISC-yellow.svg)
+        `;
     }
-    console.log(license);
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {
-    if (license === 'none') {
+function renderLicenseLink(confirmLicense, license) {
+    if (confirmLicense === false | license === 'none') {
         return '';
     }
 
-    return `* [License](#license)`
+    return `
+    * [License](#license)
+    `
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {
-    if (license === 'none') {
+function renderLicenseSection(confirmLicense, license) {
+    if (confirmLicense === false | license === 'none') {
         return '';
     }
 
-    return `## License
+    return `
+    ## License
 
-    This project is licensed under the ${license} license.`
+    This project is licensed under the ${license} license.
+    `
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
 return `
     # ${data.title}
-    ${renderLicenseBadge(data.license)}
-    
+    ${renderLicenseBadge(data.confirmLicense, data.license)}
     ## Description
     
     ${data.description}
@@ -58,9 +65,7 @@ return `
     * [Installation](#installation)
 
     * [Usage](#usage)
-
-    ${renderLicenseLink(data.license)}
-
+    ${renderLicenseLink(data.confirmLicense, data.license)}
     * [Contributing](#contributing)
 
     * [Tests](#tests)
@@ -77,9 +82,7 @@ return `
     ## Usage
 
     ${data.usage}
-
-    ${renderLicenseSection(data.license)}
-    
+    ${renderLicenseSection(data.confirmLicense, data.license)}
     ## Contributing
 
     ${data.contributions}
