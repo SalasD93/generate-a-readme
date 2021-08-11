@@ -1,6 +1,8 @@
 // TODO: Include packages needed for this application
+const { rejects } = require('assert');
 const fs = require('fs');
 const inquirer = require('inquirer');
+const { resolve } = require('path');
 const generateMarkDown = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
 const questions = [
@@ -112,28 +114,48 @@ const questions = [
         type: "confirm",
         name: "confirmLicense",
         message: "Would you like to add any license?",
-        default: false,
+        default: false
     },
     {
         type: "list",
         name: "license",
         message: "Please select any license you would like to add.",
         choices: ["Apache", "Apache 2.0", "GNU GPLv3", "MIT", "ISC", "none",],
-        when: ({confirmLicense}) => confirmLicense,
+        when: ({confirmLicense}) => confirmLicense
     },
 ];
 // TODO: Create a function to write README file
-// function writeToFile('README.md', data) {
+const writeToFile = data => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/README.md', data, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
 
-// }
+            resolve({
+                ok: true,
+                message: 'File Created!'
+            });
+        });
+    });
+};
 
 // TODO: Create a function to initialize app
-function init() {
+const init = () => {
     inquirer.prompt(questions)
     .then(answers => {
-        console.log(answers);
-        console.log(generateMarkDown(answers));
+        return generateMarkDown(answers);
     })
+    .then(readme => {
+        return writeToFile(readme);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 }
 
 // Function call to initialize app
