@@ -1,15 +1,17 @@
-// TODO: Include packages needed for this application
+// packages needed for this application
 const { rejects } = require('assert');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const { resolve } = require('path');
 const generateMarkDown = require('./utils/generateMarkdown');
-// TODO: Create an array of questions for user input
+
+// array of questions for user input
 const questions = [
     {
         type: "input",
         name: "username",
         message: "What is your GitHub username?",
+        // forces user to answer question
         validate: usernameInput => {
             if (usernameInput) {
                 return true;
@@ -121,10 +123,11 @@ const questions = [
         name: "license",
         message: "Please select any license you would like to add.",
         choices: ["Apache", "Apache 2.0", "GNU GPLv3", "MIT", "ISC", "none",],
+        // will only display this question if true
         when: ({confirmLicense}) => confirmLicense
     },
 ];
-// TODO: Create a function to write README file
+// function to write README file
 const writeToFile = data => {
     return new Promise((resolve, reject) => {
         fs.writeFile('./dist/README.md', data, err => {
@@ -132,7 +135,7 @@ const writeToFile = data => {
                 reject(err);
                 return;
             }
-
+            // confirms readme was created
             resolve({
                 ok: true,
                 message: 'File Created!'
@@ -141,7 +144,7 @@ const writeToFile = data => {
     });
 };
 
-// TODO: Create a function to initialize app
+// function to initialize app and functions
 const init = () => {
     inquirer.prompt(questions)
     .then(answers => {
@@ -158,5 +161,5 @@ const init = () => {
     });
 }
 
-// Function call to initialize app
+// function call to initialize app
 init();
