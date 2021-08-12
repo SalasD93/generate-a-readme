@@ -7,10 +7,10 @@ const renderLicenseBadge = (confirmLicense, license) => {
         return `![Apache](https://img.shields.io/badge/license-Apache-blue.svg)
 `;
     } else if (license === 'Apache 2.0') {
-        return `![Apache 2.0](https://img.shields.io/badge/license-Apache-2.0-blue.svg)
+        return `![Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
 `;
     }  else if (license === 'GNU GPLv3') {
-        return `![GNU GPLv3](https://img.shields.io/badge/license-GNU-GPLv3-red.svg)
+        return `![GNU GPLv3](https://img.shields.io/badge/license-GNU%20GPLv3-red.svg)
 `;
     }  else if (license === 'MIT') {
         return `![MIT](https://img.shields.io/badge/license-MIT-green.svg)
@@ -48,8 +48,7 @@ This project is licensed under the ${license} license.
 
 // function to generate markdown for README
 const generateMarkdown = (data) => {
-return `
-# ${data.title}
+return `# ${data.title}
 ${renderLicenseBadge(data.confirmLicense, data.license)}
 ## Description
 
@@ -77,6 +76,8 @@ ${data.installation}
 
 
 ## Usage
+
+To use this application, run the following command:
 
 ${data.usage}
 ${renderLicenseSection(data.confirmLicense, data.license)}
