@@ -68,7 +68,7 @@ const questions = [
             if (installationInput) {
                 return true;
             } else {
-                console.log("Please provide installation instructions.");
+                console.log("Please provide installation command.");
                 return false;
             }
         },
@@ -76,12 +76,12 @@ const questions = [
     {
         type: "input",
         name: "usage",
-        message: "Provide information about usage.",
+        message: "Provide command for usage.",
         validate: usageInput => {
             if (usageInput) {
                 return true;
             } else {
-                console.log("Please provide information about usage.");
+                console.log("Please provide command for usage.");
                 return false;
             }
         },
@@ -107,7 +107,7 @@ const questions = [
             if (testInput) {
                 return true;
             } else {
-                console.log("Please provide instructions for testing.");
+                console.log("Please provide command for testing.");
                 return false;
             }
         },
@@ -115,13 +115,13 @@ const questions = [
     {
         type: "confirm",
         name: "confirmLicense",
-        message: "Would you like to add any license?",
+        message: "Would you like to add a license?",
         default: false
     },
     {
         type: "list",
         name: "license",
-        message: "Please select any license you would like to add.",
+        message: "Please select a license you would like to add.",
         choices: ["Apache", "Apache 2.0", "GNU GPLv3", "MIT", "ISC", "none",],
         // will only display this question if true
         when: ({confirmLicense}) => confirmLicense
