@@ -44,7 +44,6 @@ I was tasked with creating a command-line application that dynamically generates
 ![Homework Screenshot 4]()
 ![Homework Screenshot 5]()
 
-
 ## Installation
 
 To install necessary dependencies, run the following commands:
