@@ -38,11 +38,12 @@ I was tasked with creating a command-line application that dynamically generates
 
 ## Mock-up
 
-![Homework Screenshot 1]()
-![Homework Screenshot 2]()
-![Homework Screenshot 3]()
-![Homework Screenshot 4]()
-![Homework Screenshot 5]()
+![Homework Screenshot 1](https://github.com/SalasD93/generate-a-readme/blob/main/assets/screenshots/Ch9-Screenshot-1.png?raw=true)
+![Homework Screenshot 2](https://github.com/SalasD93/generate-a-readme/blob/main/assets/screenshots/Ch9-Screenshot-2.png?raw=true)
+![Homework Screenshot 3](https://github.com/SalasD93/generate-a-readme/blob/main/assets/screenshots/Ch9-Screenshot-3.png?raw=true)
+![Homework Screenshot 4](https://github.com/SalasD93/generate-a-readme/blob/main/assets/screenshots/Ch9-Screenshot-4.png?raw=true)
+![Homework Screenshot 5](https://github.com/SalasD93/generate-a-readme/blob/main/assets/screenshots/Ch9-Screenshot-5.png?raw=true)
+![Homework Screenshot 6](https://github.com/SalasD93/generate-a-readme/blob/main/assets/screenshots/Ch9-Screenshot-6.png?raw=true)
 
 ## Installation
 
