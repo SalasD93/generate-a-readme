@@ -57,6 +57,10 @@ ${data.description}
 
 ## Table of Contents
 
+* [Mock-Up](#mock-up)
+
+* [Built-With](#built-with)
+
 * [Installation](#installation)
 
 * [Usage](#usage)
@@ -66,6 +70,20 @@ ${renderLicenseLink(data.confirmLicense, data.license)}
 * [Tests](#tests)
 
 * [Questions](#questions)
+
+* [Walkthrough-Video](#walkthrough-video)
+
+* [Repository](#repository)
+
+
+## Mock-Up
+
+![Homework Screenshot 1](${data.mockup})
+
+
+## Built-With
+
+${data.languages}
 
 
 ## Installation
@@ -96,7 +114,15 @@ ${data.test}
 
 ## Questions
 
-If you have any questions about the repo, open an issue or contact me directly at ${data.email}. You can find more of my work at [Github](https://github.com/${data.username}).`;
+If you have any questions about the repo, open an issue or contact me directly at ${data.email}. You can find more of my work at [Github](https://github.com/${data.username}).
+
+## Walkthrough Video
+
+${data.video}
+
+## Repository
+
+https://github.com/SalasD93/${data.title}`;
 }
 
 module.exports = generateMarkdown;

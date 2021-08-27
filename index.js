@@ -9,6 +9,28 @@ const generateMarkDown = require('./utils/generateMarkdown');
 const questions = [
     {
         type: "input",
+        name: "mockup",
+        message: "Include the link for your mock-up. If none, enter 'none'.",
+        // forces user to answer question
+        validate: mockupInput => {
+            if (mockupInput) {
+                return true;
+            } else if (mockupInput === "none") {
+                return true;
+            } else {
+                console.log("Please input your mock-up links.");
+                return false;
+            }
+        },
+    },
+    {
+        type: "checkbox",
+        name: "languages",
+        message: "What languages did you use to create this project?",
+        choices: ["HTML", "CSS", "JavaScript", "JQuery", "Bootstrap", "Bulma CSS", "NodeJS"],
+    },
+    {
+        type: "input",
         name: "username",
         message: "What is your GitHub username?",
         // forces user to answer question
@@ -113,6 +135,21 @@ const questions = [
         },
     },
     {
+        type: "input",
+        name: "video",
+        message: "What is the URL of your walkthrough video? If none, enter 'none'.",
+        validate: videoInput => {
+            if (videoInput) {
+                return true;
+            } else if (videoInput === "none") {
+                return true;
+            } else {
+                console.log("Please provide the URL for your walthrough video.");
+                return false;
+            }
+        },
+    },
+    {
         type: "confirm",
         name: "confirmLicense",
         message: "Would you like to add a license?",
@@ -130,7 +167,7 @@ const questions = [
 // function to write README file
 const writeToFile = data => {
     return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/README.md', data, err => {
+        fs.writeFile('./utils/README.md', data, err => {
             if (err) {
                 reject(err);
                 return;
